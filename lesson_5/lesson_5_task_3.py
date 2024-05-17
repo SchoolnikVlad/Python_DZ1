@@ -8,13 +8,16 @@ driver = webdriver.Chrome()
 # Открытие страницы в браузере Google chrome
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
-for _ in range(5):
-    driver.find_element(By.CSS_SELECTOR, "button[onclick='addElement()']").click()
+button = "/html/body/div[2]/div/div/button"
 
-sleep(2)
+click_button = driver.find_element(By.XPATH, button)
 
-Delete_button = driver.find_elements(By.CSS_SELECTOR, 'button.added-manually')
-print("Браузер Google Chrome, количество  кнопок 'Delete' -", len(Delete_button))
+for new_element in range(1, 6):
+    click_button.click()
+    sleep(2)
+
+delete_button = driver.find_elements(By.CSS_SELECTOR, 'button.added-manually')
+print("Браузер Google Chrome, количество  кнопок 'Delete' -", len(delete_button))
 
 driver.quit()
 
@@ -24,13 +27,15 @@ driver = webdriver.Firefox(options=options)
 # Открытие страницы в браузере Firefox
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
-for _ in range(5):
-    button = driver.find_element(By.CSS_SELECTOR, 'button[onclick="addElement()"]')
-    button.click()
+button = "/html/body/div[2]/div/div/button"
 
-sleep(2)
+click_button = driver.find_element(By.XPATH, button)
 
-Delete_button = driver.find_elements(By.CSS_SELECTOR, 'button.added-manually')
-print("Браузер FireFOX, количество кнопок 'Delete' -", len(Delete_button))
+for new_element in range(1, 6):
+    click_button.click()
+    sleep(2)
+
+delete_button = driver.find_elements(By.CSS_SELECTOR, 'button.added-manually')
+print("Браузер FireFOX, количество кнопок 'Delete' -", len(delete_button))
 
 driver.quit()
