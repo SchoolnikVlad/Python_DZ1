@@ -8,7 +8,7 @@ driver = webdriver.Chrome()
 # Открытие страницы в браузере Google chrome
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
-button = "/html/body/div[2]/div/div/button"
+button = "example"
 
 click_button = driver.find_element(By.XPATH, button)
 
@@ -27,7 +27,7 @@ driver = webdriver.Firefox(options=options)
 # Открытие страницы в браузере Firefox
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
-button = "/html/body/div[2]/div/div/button"
+button = "example"
 
 click_button = driver.find_element(By.XPATH, button)
 
