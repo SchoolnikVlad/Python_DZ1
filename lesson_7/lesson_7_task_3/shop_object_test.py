@@ -7,11 +7,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 
-from pages.login_page import LoginPage # type: ignore
-from pages.product_page import ProductPage # type: ignore
-from pages.cart_page import CartPage # type: ignore
-from pages.checkout_page import CheckoutPage # type: ignore
-from pages.overview_page import OverviewPage # type: ignore
+from login_page import LoginPage 
+from product_page import ProductPage 
+from cart_page import CartPage 
+from checkout_page import CheckoutPage 
+from overview_page import OverviewPage 
 
 def test_cart_counter():
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
