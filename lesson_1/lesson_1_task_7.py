@@ -1,0 +1,13 @@
+def buy(num):
+    print(num, end='')
+buy(8)
+buy(8)
+buy(0)
+buy(0)
+buy(5)
+buy(5)
+buy(5)
+buy(3)
+buy(5)
+buy(3)
+buy(5)
