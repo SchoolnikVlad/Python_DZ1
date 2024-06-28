@@ -1,8 +1,10 @@
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+from conf import *
 
-def test_calculator_form(chrome_browser):
+def test_calculator_form(chrome_browser: WebDriver):
     chrome_browser.get('https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html')
     # Enter 45 in the delay input field
     delay_input = chrome_browser.find_element(By.ID, "delay")
