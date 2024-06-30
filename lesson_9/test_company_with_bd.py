@@ -22,19 +22,25 @@ def fake_info():
     }
 
 
-def test_get_companies():
-    api_result = company.get_company_list()
-    db_result = db.get_companies()
-    assert len(api_result) == len(
-        db_result
-    )  # В базе строка не удаляется, ей присваивается значение в поле Deleted_at
-
-
 def test_get_active_companies():
     active_company_list = company.get_company_list(params_to_add={"active": "true"})
     db_list = db.get_active_companies()
-    assert len(active_company_list) == len(db_list)
-
+    name_company = fake_info["company_name"]
+    description_company = fake_info["company_description"]
+    new_company = company.create_company(name_company, description_company)
+    new_id = new_company["id"]
+    db_result = db.get_companies()
+    assert len(active_company_list) == len(
+        db_result
+    active_company_list = company.get_company_list()
+    len_after = len(active_company_list)
+    db.delete_company(new_id)
+    assert len_after - len_before == 1
+    for company_one in api_result:
+        if company_one["id"] == new_id:
+            assert api_result[-1]["name"] == name_company
+            assert api_result[-1]["description"] == description_company
+            assert api_result[-1]["id"] == new_id
 
 def test_add_new_company(fake_info):
     full_company_list = company.get_company_list()
